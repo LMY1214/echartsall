@@ -63,7 +63,7 @@ body {
 }
 .main .column h3 {
   color: white;
-  font-size: 0.2rem;
+  font-size: 0.25rem;
   font-weight: 400;
 }
 .main .column:nth-of-type(1) .data {
@@ -179,7 +179,7 @@ body {
   margin-right: 0.3125rem;
 }
 .main .column .stats .context .right {
-  flex: 3;
+  flex: 3.5;
   background-image: url(../images/rect.png);
   background-size: cover;
   flex-direction: column;
@@ -205,8 +205,181 @@ body {
   color: #f8ab05;
 }
 .main .middle {
-  background-color: antiquewhite;
   flex: 4;
   margin-left: 0.3rem;
   margin-right: 0.3rem;
+}
+.main .middle .map .top {
+  height: 0.6rem;
+  margin-top: 0.8rem;
+  padding-left: 0.4rem;
+  box-sizing: border-box;
+  background: url(../images/shebei.png) no-repeat;
+  background-size: 0.3rem;
+}
+.main .middle .map .context {
+  background-color: rgba(255, 255, 255, 0.05);
+  height: 6.9rem;
+  margin-bottom: 0.25rem;
+  box-sizing: border-box;
+}
+.main .middle .country .context .left {
+  flex: 4;
+}
+.main .middle .country .context .right {
+  flex: 1;
+}
+.main .last {
+  /*  //   <!-- 销售额统计 --> */
+}
+.main .last .day {
+  height: 1.2rem;
+}
+.main .last .day .inner {
+  font-size: 0.2rem;
+}
+.main .last .day .inner .ul_one {
+  display: flex;
+}
+.main .last .day .inner .ul_one li {
+  line-height: 0.3rem;
+  text-align: center;
+  width: 1rem;
+  border-right: 0.025rem solid #00f2f1;
+  font-size: 0.25rem;
+  padding: 0 0.12rem;
+  color: #4c9bfd;
+}
+.main .last .day .inner .ul_one li:nth-of-type(1) {
+  padding-left: 0;
+}
+.main .last .day .inner .ul_one li:nth-last-of-type(1) {
+  border-right: none;
+}
+.main .last .day .inner .ul_one .active {
+  color: #fff;
+  font-size: 0.3rem;
+}
+.main .last .day .inner .ul_data {
+  display: flex;
+  margin-top: 0.1rem;
+  padding-left: 0.24rem;
+}
+.main .last .day .inner .ul_data li {
+  flex: 1;
+  font-size: 0.4rem;
+  color: #fff;
+  position: relative;
+  margin-right: 0.4375rem;
+  margin-top: 0.0875rem;
+}
+.main .last .day .inner .ul_data li h4 {
+  margin-bottom: 0.1rem;
+}
+.main .last .day .inner .ul_data li span {
+  display: inline-block;
+  font-size: 0.2rem;
+  color: #4c9bfd;
+  position: absolute;
+  bottom: -0.3475rem;
+}
+.main .last .day .inner .ul_data li span .line1 {
+  background-color: #db4e3f;
+}
+.main .last .day .inner .ul_data li span .line2 {
+  background-color: #eacf19;
+}
+.main .last .sales {
+  height: 2.4rem;
+}
+.main .last .sales .line_div {
+  width: 0.025rem;
+  background-color: #00f2f1;
+  height: 0.3rem;
+  position: absolute;
+  top: 0.2rem;
+  left: 1.9rem;
+  margin-top: 0.1rem;
+}
+.main .last .sales .span {
+  font-size: 0.175rem;
+  color: #4c9bfd;
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+}
+.main .last .sales ul {
+  position: absolute;
+  top: 0.2rem;
+  left: 2.2rem;
+  display: flex;
+}
+.main .last .sales ul li {
+  font-size: 0.175rem;
+  border-radius: 0.0375rem;
+  color: #0bace6;
+  padding: 0.05rem 0.07rem;
+  margin: 0.03rem 0.15rem;
+}
+.main .last .sales ul .active {
+  background-color: #4c9bfd;
+  color: #fff;
+}
+.main .last .fang {
+  display: flex;
+}
+.main .last .fang .channel {
+  height: 2.3rem;
+  flex: 3;
+}
+.main .last .fang .channel .radar {
+  background-color: #db4e3f;
+  width: 100%;
+  height: 100%;
+}
+.main .last .fang .quarter {
+  margin-left: 0.2rem;
+  flex: 2.5;
+}
+.main .last .fang .quarter .inner .percentage {
+  margin-top: 0.4rem;
+  height: 0.8rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.4375rem;
+}
+.main .last .fang .quarter .inner .percentage_data {
+  display: flex;
+  height: 1rem;
+  margin-top: 0.1rem;
+}
+.main .last .fang .quarter .inner .percentage_data div {
+  flex: 1;
+}
+.main .last .fang .quarter .inner .percentage_data div h4 {
+  color: #fff;
+  font-size: 0.375rem;
+}
+.main .last .fang .quarter .inner .percentage_data div span {
+  width: 1.2rem;
+  color: #4cfde2;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.main .last .fang .quarter .inner .percentage_data div .line1 {
+  background-color: #6acca3;
+}
+.main .last .fang .quarter .inner .percentage_data div .line2 {
+  background-color: #ed3f35;
+}
+.main .last .finish {
+  height: 2.6rem;
+}
+.main .last .finish .context .left {
+  flex: 8;
+}
+.main .last .finish .context .right {
+  flex: 3;
 }

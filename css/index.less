@@ -74,7 +74,7 @@ body {
 
         h3 {
             color: white;
-            font-size: 0.2rem;
+            font-size: .25rem;
             font-weight: 400;
         }
 
@@ -236,7 +236,7 @@ body {
                 }
 
                 .right {
-                    flex: 3;
+                    flex: 3.5;
                     background-image: url(../images/rect.png);
                     background-size: cover;
                     display: flex;
@@ -273,11 +273,244 @@ body {
         }
     }
 
+    // 第二列
+
     .middle {
-        background-color: antiquewhite;
+        // background-color: antiquewhite;
         flex: 4;
         margin-left: .3rem;
         margin-right: .3rem;
 
+        .map {
+            .top {
+                height: 0.6rem;
+                // background-color: bisque;
+                margin-top: .8rem;
+                padding-left: .4rem;
+                box-sizing: border-box;
+                background: url(../images/shebei.png) no-repeat;
+                background-size: .3rem;
+
+            }
+
+            .context {
+                background-color: rgba(255, 255, 255, 0.05);
+                height: 6.9rem;
+                margin-bottom: 0.25rem;
+                box-sizing: border-box;
+            }
+        }
+
+        .country {
+            .context {
+                .left {
+                    flex: 4;
+                }
+
+                .right {
+                    flex: 1;
+                }
+            }
+        }
+    }
+
+    // 第三列
+    .last {
+
+        //  <!-- 订单量统计 -->
+        .day {
+            height: 1.2rem;
+
+            .inner {
+                font-size: .2rem;
+
+                .ul_one {
+
+                    display: flex;
+
+                    li {
+                        line-height: 0.3rem;
+                        text-align: center;
+                        width: 1rem;
+                        border-right: 0.025rem solid #00f2f1;
+                        font-size: .25rem;
+                        padding: 0 .12rem;
+                        color: @c;
+
+                        &:nth-of-type(1) {
+                            padding-left: 0;
+                        }
+
+                        &:nth-last-of-type(1) {
+                            border-right: none;
+                        }
+                    }
+
+                    .active {
+                        color: #fff;
+                        // font-weight: 600;
+                        font-size: .3rem;
+                    }
+
+
+                }
+
+                .ul_data {
+                    display: flex;
+                    margin-top: 0.1rem;
+                    padding-left: 0.24rem;
+
+                    li {
+                        flex: 1;
+                        font-size: .4rem;
+                        color: #fff;
+                        position: relative;
+                        margin-right: .4375rem;
+                        margin-top: .0875rem;
+
+                        h4 {
+                            margin-bottom: 0.1rem;
+                        }
+
+                        span {
+                            display: inline-block;
+                            font-size: .2rem;
+                            color: @c;
+                            position: absolute;
+                            bottom: -0.3475rem;
+
+                            .line1 {
+                                background-color: #db4e3f;
+                            }
+
+                            .line2 {
+                                background-color: #eacf19;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /*  //   <!-- 销售额统计 --> */
+        .sales {
+            height: 2.4rem;
+
+            .line_div {
+                width: 0.025rem;
+                background-color: #00f2f1;
+                height: .3rem;
+                position: absolute;
+                top: .2rem;
+                left: 1.9rem;
+                margin-top: 0.1rem;
+            }
+
+            .span {
+                font-size: .175rem;
+                color: @c;
+                position: absolute;
+                top: .8rem;
+                left: .8rem;
+            }
+
+            ul {
+                position: absolute;
+                top: .2rem;
+                left: 2.2rem;
+                display: flex;
+
+                li {
+                    font-size: .175rem;
+                    border-radius: 0.0375rem;
+                    color: #0bace6;
+                    padding: 0.05rem 0.07rem;
+                    margin: 0.03rem .15rem;
+                }
+
+                .active {
+                    background-color: #4c9bfd;
+                    color: #fff;
+                }
+            }
+        }
+
+        .fang {
+            display: flex;
+
+            .channel {
+                height: 2.3rem;
+                flex: 3;
+
+                .radar {
+                    background-color: #db4e3f;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .quarter {
+                margin-left: .2rem;
+                flex: 2.5;
+
+
+                .inner {
+                    .percentage {
+                        margin-top: .4rem;
+                        height: .8rem;
+                        text-align: center;
+                        color: #fff;
+                        font-size: .4375rem;
+                    }
+
+
+                    .percentage_data {
+                        display: flex;
+                        height: 1rem;
+                        margin-top: 0.1rem;
+
+                        div {
+                            flex: 1;
+
+                            h4 {
+                                color: #fff;
+                                font-size: .375rem;
+                            }
+
+                            span {
+                                width: 1.2rem;
+                                color: #4cfde2;
+                                display: inline-block;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                            }
+
+                            .line1 {
+                                background-color: #6acca3;
+                            }
+
+                            .line2 {
+                                background-color: #ed3f35;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .finish {
+            height: 2.6rem;
+
+            .context {
+                .left {
+                    flex: 8;
+                }
+
+                .right {
+                    flex: 3;
+                }
+            }
+        }
     }
 }
