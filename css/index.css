@@ -144,9 +144,15 @@ body {
   color: #61a8ff;
   animation: move linear 10s infinite;
 }
+.main .column:nth-of-type(1) .monitor .mp_bottom .ul ul:hover {
+  animation-play-state: paused;
+}
 .main .column:nth-of-type(1) .monitor .mp_bottom .ul ul li {
   display: flex;
   line-height: 0.5rem;
+}
+.main .column:nth-of-type(1) .monitor .mp_bottom .ul ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .main .column:nth-of-type(1) .monitor .mp_bottom .ul ul li span:nth-of-type(1),
 .main .column:nth-of-type(1) .monitor .mp_bottom .ul ul li span:nth-of-type(3) {
@@ -288,6 +294,9 @@ body {
 }
 .main .last .day .inner .ul_data li span .line2 {
   background-color: #eacf19;
+}
+.main .last .day .inner .ul_dataHidden {
+  display: none;
 }
 .main .last .sales {
   height: 2.4rem;
