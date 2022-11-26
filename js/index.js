@@ -388,3 +388,88 @@ day_.onmouseleave = function () {
     }
 
 })();
+// 雷达图
+(function () {
+    let myEchart = echarts.init(document.getElementsByClassName('radar')[0]);
+    // Schema:
+    // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
+
+    const lineStyle = {
+        normal: {
+            color: '#fff',
+        }
+    };
+    let option = {
+        tooltip: {
+            show: true,
+            // 控制提示框组件的显示位置
+            position: ['60%', '10%'],
+            backgroundColor: 'rgba(255, 255, 255, 0.3)'
+        },
+        radar: {
+            center: ['50%', '55%'],
+            // 外半径占据容器大小
+            radius: '55%',
+            indicator: [
+                { name: '机场', max: 100 },
+                { name: '商场', max: 100 },
+                { name: '火车站', max: 100 },
+                { name: '汽车站', max: 100 },
+                { name: '地铁', max: 100 }
+            ],
+            shape: 'circle',
+            splitNumber: 4,
+
+            axisName: {
+                color: '#4c9bfd'
+            },
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(255, 255, 255, 0.5)',
+                }
+            },
+            splitArea: {
+                show: false
+            },
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: 'rgba(255, 255, 255, 0.5)'
+                }
+            }
+        },
+
+        series: [
+            {
+                name: 'Beijing',
+                type: 'radar',
+                lineStyle: lineStyle,
+                data: [[90, 19, 56, 11, 34]],
+                symbol: 'circle',
+                symbolSize: 5,
+                itemStyle: {
+                    color: '#fff'
+                },
+                label: {
+                    show: true,
+                    color: '#fff',
+                    fontSize: 8
+                },
+                areaStyle: {
+                    color: 'rgba(238, 197, 102, 0.6)',
+                }
+            },
+
+        ]
+    };
+    myEchart.setOption(option);
+    window.addEventListener('load', function () {
+        myEchart.resize();
+    })
+    window.addEventListener('resize', function () {
+        myEchart.resize();
+    })
+
+
+})();
+
