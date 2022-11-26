@@ -52,40 +52,40 @@ day_.onmouseenter = function () {
 }
 day_.onmouseleave = function () {
     time()
-}
-// 销售额统计
-
-var sales_ul = document.getElementsByClassName('sales')[0].getElementsByTagName('ul')[0];
-var sales_lis = sales_ul.getElementsByTagName('li');
-var ind = 0;
-var timer1;
-for (var i = 0; i < sales_lis.length; i++) {
-    sales_lis[i].setAttribute('index', i);
-    sales_lis[i].onclick = function () {
-        ind = this.getAttribute('index');
-        for (var j = 0; j < sales_lis.length; j++) {
-            sales_lis[j].classList.remove('active');
-            sales_lis[ind].classList.add('active')
-        }
-    }
-}
-function time1() {
-    timer1 = setInterval(function () {
-        ind++;
-        if (ind >= sales_lis.length) {
-            ind = 0;
-        }
-        sales_lis[ind].click()
-    }, 1800)
-}
-time1()
-var sales_ = document.getElementsByClassName('sales')[0];
-sales_.onmouseenter = function () {
-    clearInterval(timer1)
-}
-sales_.onmouseleave = function () {
-    time1()
 };
+// // 销售额统计
+
+// var sales_ul = document.getElementsByClassName('sales')[0].getElementsByTagName('ul')[0];
+// var sales_lis = sales_ul.getElementsByTagName('li');
+// var ind = 0;
+// var timer1;
+// for (var i = 0; i < sales_lis.length; i++) {
+//     sales_lis[i].setAttribute('index', i);
+//     sales_lis[i].onclick = function () {
+//         ind = this.getAttribute('index');
+//         for (var j = 0; j < sales_lis.length; j++) {
+//             sales_lis[j].classList.remove('active');
+//             sales_lis[ind].classList.add('active')
+//         }
+//     }
+// }
+// function time1() {
+//     timer1 = setInterval(function () {
+//         ind++;
+//         if (ind >= sales_lis.length) {
+//             ind = 0;
+//         }
+//         sales_lis[ind].click()
+//     }, 1800)
+// }
+// time1()
+// var sales_ = document.getElementsByClassName('sales')[0];
+// sales_.onmouseenter = function () {
+//     clearInterval(timer1)
+// }
+// sales_.onmouseleave = function () {
+//     time1()
+// };
 
 // 饼状图
 (function () {
@@ -245,5 +245,146 @@ sales_.onmouseleave = function () {
     window.addEventListener('resize', function () {
         myEchart.resize();
     })
+
+})();
+
+// 折线图
+(function () {
+    let myEchart = echarts.init(document.getElementsByClassName('line_p')[0]);
+    var data = {
+        year: [
+            [24, 40, 101, 134, 90, 230, 210, 230, 120, 230, 210, 120],
+            [40, 64, 191, 324, 290, 330, 310, 213, 180, 200, 180, 79]
+        ],
+        quarter: [
+            [23, 75, 12, 97, 21, 67, 98, 21, 43, 64, 76, 38],
+            [43, 31, 65, 23, 78, 21, 82, 64, 43, 60, 19, 34]
+        ],
+        month: [
+            [34, 87, 32, 76, 98, 12, 32, 87, 39, 36, 29, 36],
+            [56, 43, 98, 21, 56, 87, 43, 12, 43, 54, 12, 98]
+        ],
+        week: [
+            [43, 73, 62, 54, 91, 54, 84, 43, 86, 43, 54, 53],
+            [32, 54, 34, 87, 32, 45, 62, 68, 93, 54, 54, 24]
+        ]
+    }
+    let option = {
+        color: ['#00f2f1', '#ed3f35'],
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['预期销售额', '实际销售额'],
+            textStyle: {
+                color: '#4c9bfd' // 图例文字颜色
+            },
+            right: '10%' // 距离右边10%
+        },
+        grid: {
+            top: '20%',
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            show: true,// 显示边框
+            borderColor: '#012f4a',// 边框颜色
+            containLabel: true // 包含刻度文字在内
+        },
+        xAxis: {
+            type: 'category',
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+            axisTick: {
+                show: false // 去除刻度线
+            },
+            axisLabel: {
+                color: '#4c9bfd' // 文本颜色
+            },
+            axisLine: {
+                show: false // 去除轴线
+            },
+            boundaryGap: false  // 去除轴内间距
+        },
+        yAxis: {
+            type: 'value',
+            axisTick: {
+                show: false  // 去除刻度
+            },
+            axisLabel: {
+                color: '#4c9bfd' // 文字颜色
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#012f4a' // 分割线颜色
+                }
+            }
+        },
+        series: [
+            {
+                name: '预期销售额',
+                data: data.year[0],
+                type: 'line',
+                smooth: true,
+                itemStyle: {
+                    color: '#00f2f1'
+                }
+            }, {
+                name: '实际销售额',
+                data: data.year[1],
+                type: 'line',
+                smooth: true,
+                itemStyle: {
+                    color: '#ed3f35'
+                }
+            }
+
+        ]
+    };
+    myEchart.setOption(option);
+    window.addEventListener('load', function () {
+        myEchart.resize();
+    })
+    window.addEventListener('resize', function () {
+        myEchart.resize();
+    })
+    // 点击切换
+
+    // 销售额统计
+
+    var sales_ul = document.getElementsByClassName('sales')[0].getElementsByTagName('ul')[0];
+    var sales_lis = sales_ul.getElementsByTagName('li');
+    var ind = 0;
+    var timer1;
+    for (var i = 0; i < sales_lis.length; i++) {
+        sales_lis[i].setAttribute('index', i);
+        sales_lis[i].onclick = function () {
+            ind = this.getAttribute('index');
+            for (var j = 0; j < sales_lis.length; j++) {
+                sales_lis[j].classList.remove('active');
+                sales_lis[ind].classList.add('active')
+            }
+            var data_ = this.getAttribute('data-time');
+            console.log(data_);
+            option.series[0].data = data[data_][0];
+            option.series[1].data = data[data_][1];
+            myEchart.setOption(option);
+        }
+    }
+    function time1() {
+        timer1 = setInterval(function () {
+            ind++;
+            if (ind >= sales_lis.length) {
+                ind = 0;
+            }
+            sales_lis[ind].click()
+        }, 1800)
+    }
+    time1()
+    var sales_ = document.getElementsByClassName('sales')[0];
+    sales_.onmouseenter = function () {
+        clearInterval(timer1)
+    }
+    sales_.onmouseleave = function () {
+        time1()
+    }
 
 })();
