@@ -136,3 +136,114 @@ sales_.onmouseleave = function () {
     })
 
 })();
+
+// 柱状图
+(function () {
+    let myEchart = echarts.init(document.getElementsByClassName('bar')[0]);
+    var item = {
+        name: '',
+        value: 1200,
+        // 柱子颜色
+        itemStyle: {
+            color: '#254065'
+        },
+        // 鼠标经过柱子颜色
+        emphasis: {
+            itemStyle: {
+                color: '#254065'
+            }
+        },
+        // 工具提示隐藏
+        tooltip: {
+            extraCssText: 'opacity:0'
+        },
+    }
+    let option = {
+        xAxis: {
+            type: 'category',
+            data: ['郑州', '广州', '北京', '深圳', '合肥', '', '......', '', '杭州', '厦门', '济南', '成都', '重庆'],
+            axisTick: {
+                // true意思：图形和刻度居中中间
+                // false意思：图形在刻度之间
+                alignWithLabel: false,
+                // 不显示刻度
+                show: false
+            },
+            axisLabel: {
+                color: '#71f2fb'
+            },
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(0, 240, 255, 0.3)',
+                    // width:8,  x轴线的粗细
+                    // opcity: 0,   如果不想显示x轴线 则改为 0
+                }
+            }
+        },
+        yAxis: {
+            type: 'value',
+            axisTick: {
+                // 不显示刻度
+                show: false
+            },
+            // y坐标轴文字标签样式设置
+            axisLabel: {
+                color: '#71f2fb'
+            },
+            // y坐标轴颜色设置
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(0, 240, 255, 0.3)',
+                    // width:8,  x轴线的粗细
+                    // opcity: 0,   如果不想显示x轴线 则改为 0
+                }
+            },
+            // y轴 分割线的样式 
+            splitLine: {
+                lineStyle: {
+                    color: 'rgba(0, 240, 255, 0.3)'
+                }
+            }
+        },
+        color: new echarts.graphic.LinearGradient(
+            // (x1,y2) 点到点 (x2,y2) 之间进行渐变
+            0, 0, 0, 1,
+            [
+                { offset: 0, color: '#00fffb' }, // 0 起始颜色
+                { offset: 1, color: '#0061ce' }  // 1 结束颜色
+            ]
+        ),
+        tooltip: {
+            trigger: 'item',
+            // axisPointer: {            // 坐标轴指示器，坐标轴触发有效  这个模块我们此时不需要删掉即可
+            // type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            // }
+        },
+        // 直角坐标系内绘图网格（区域）
+        grid: {
+            top: '3%',
+            right: '3%',
+            bottom: '3%',
+            left: '0%',
+            //  图表位置紧贴画布边缘是否显示刻度以及label文字 防止坐标轴标签溢出跟grid 区域有关系
+            containLabel: true,
+            // 是否显示直角坐标系网格
+            show: true,
+            //grid 四条边框的颜色
+            borderColor: 'rgba(0, 240, 255, 0.3)'
+        },
+        series: [
+            {
+                data: [2100, 1900, 1700, 1560, 1400, item, item, item, 900, 750, 600, 480, 240], type: 'bar'
+            }
+        ]
+    };
+    myEchart.setOption(option);
+    window.addEventListener('load', function () {
+        myEchart.resize();
+    })
+    window.addEventListener('resize', function () {
+        myEchart.resize();
+    })
+
+})();
